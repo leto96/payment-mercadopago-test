@@ -1,4 +1,4 @@
-const connectionFactory = require('./dataAccess/connection');
+const connectionFactory = require('../dataAccess/connection');
 
 function user(){
 

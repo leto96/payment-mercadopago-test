@@ -1,7 +1,7 @@
 const HARDCODEDEV = true;
 (process.env.NODE_ENV === 'development' || HARDCODEDEV) ? require('dotenv').config(): null;
 console.log( process.env.NODE_ENV === 'development' || HARDCODEDEV ? 'development' : 'production' );
-const userFactory = require('./controller/userFactory');
+const userFactory = require('./controller/user/userFactory');
 const express = require('express');
 const bodyParser = require('body-parser');
 
@@ -27,7 +27,9 @@ app.post('/api/payment', async (req, res) => {
   // Create the test user
   try {
     const user =  userFactory();
-    const result = await user.createTestUser(privateToken);
+    createdTestUser = await user.createTestUser(privateToken);
+
+    
     
   } catch (error) {
     console.log('out error');
