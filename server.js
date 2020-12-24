@@ -38,12 +38,17 @@ app.post('/api/payment', async (req, res) => {
     const paymentResult = await payment.makePayment(requestData);
 
     console.log(paymentResult);
-    
+    if(paymentResult.status === 200 || paymentResult.status === 201){
+      res.stauts(200);
+      res.send({status: 'Ok', message: 'Payment done successfully'});
+    }else{
+      res.status(500);
+      res.send({status: 'Error', message: 'Something went wrong'});
+    }
     
   } catch (error) {
-    console.log('out error');
-    console.log(error);
-    
+    res.status(500);
+    res.send({status: 'Error', message: 'Something went wrong'});
   }
 });
 
