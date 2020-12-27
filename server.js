@@ -37,9 +37,8 @@ app.post('/api/payment', async (req, res) => {
     const payment = paymentFactory({secureToken: privateToken});
     const paymentResult = await payment.makePayment(requestData);
 
-    console.log(paymentResult);
     if(paymentResult.status === 200 || paymentResult.status === 201){
-      res.stauts(200);
+      res.status(200);
       res.send({status: 'Ok', message: 'Payment done successfully'});
     }else{
       res.status(500);
