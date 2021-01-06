@@ -8,6 +8,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 
 const app = express();
+const path = require('path');
 const port = process.env.PORT || 5000;
 const privateToken = process.env.MERCADO_PAGO_ACCESS_TOKEN;
 
