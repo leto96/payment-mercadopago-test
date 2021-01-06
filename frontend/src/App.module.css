@@ -1,0 +1,12 @@
+.container{
+    margin: 15px auto;
+    display: flex;
+    flex-direction: column;
+    align-Items: center;
+    width: 400px;
+    background-color: white;
+    background-color: #f1dfd1;
+    background-image: linear-gradient(315deg, #f1dfd1 0%, #f6f0ea 74%);
+    border-radius: 30px;
+    padding: 20px 0;
+}

@@ -1,0 +1,31 @@
+.image{
+  height: 300px;
+  width: 300px;
+  display: block;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
+.autorlink{
+  font-size: 8px;
+  margin: 0px auto;
+}
+
+.thanksMessage{
+  width: 50%;
+  margin: 16px auto;
+  text-align: center;
+  font-size: 24px;
+  color: #8d9190;
+  font-family: 'Roboto Slab', serif;
+  font-weight: 700;
+}
+
+.buildingMessage{
+  width: 50%;
+  margin: 0px auto;
+  text-align: center;
+  font-size: 12px;
+  color: #8d9190;
+  font-family: 'Roboto Slab', serif;
+}

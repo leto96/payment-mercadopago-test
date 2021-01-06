@@ -2,12 +2,12 @@
   "name": "example-create-react-app-express",
   "version": "1.0.0",
   "scripts": {
-    "client": "cd client && yarn start",
+    "frontend": "cd frontend && yarn start",
     "server": "node server.js",
     "server-dev": "set NODE_ENV=development && nodemon server.js",
-    "dev": "concurrently --kill-others-on-fail \"yarn server-dev\" \"yarn client\"",
+    "dev": "concurrently --kill-others-on-fail \"yarn server-dev\" \"yarn frontend\"",
     "start": "node server.js",
-    "heroku-postbuild": "cd client && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
+    "heroku-postbuild": "cd frontend && npm install && npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "dependencies": {
     "axios": "^0.21.1",

@@ -1,0 +1,28 @@
+.button{
+  margin: 10px auto;
+  background-color: #8403fc;
+  width: 125px;
+  height: 30px;
+  border: none;
+  box-shadow: 0 0 20px rgba(153, 107, 198, 0.51);
+  border-radius: 4px;
+  color: white;
+  transition: 0.2s;
+  transition-timing-function: linear;
+  font-weight: 700;
+  font-size: 14px;
+  font-family: 'Roboto Slab', serif;
+}
+
+.button:hover:enabled{
+  background-color: #6f00d6;
+  width: 175px;
+  height: 50px;
+  font-size: 18px;
+  transition-timing-function: linear;
+}
+
+.button:disabled{
+  background-color: #6e7375;
+  box-shadow: none;
+}

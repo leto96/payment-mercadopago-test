@@ -1,0 +1,47 @@
+.group{
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.hiddenGroup{
+  display: none;
+}
+
+.label{
+  margin: 0 0 5px 0;
+  font-size: 14px;
+  margin-bottom: 10px;
+  text-align: center;
+  color: #707680;
+  font-family: 'Roboto Slab', serif;
+
+}
+
+.input{
+  margin: 0 0 5px 0;
+  width: 200px;
+  height: 20px;
+  box-shadow: 0 0 10px rgba(174, 182, 194, 0.51);
+  border-radius: 2em / 5em;
+  transition: 0.2s;
+  transition-timing-function: linear;
+  padding-left: 5px;
+  font-family: 'Roboto Slab', serif;
+
+}
+
+.input:focus{
+  width: 200px;
+  height: 20px;
+  box-shadow: 0 0 20px rgba(173, 163, 207, 0.60);
+  outline: none;
+  border-radius: 2em / 5em;
+}
+
+.validationMessage{
+  font-family: 'Roboto Slab', serif;
+  font-size: 12px;
+  margin: 5px 0px 0px 0px;
+  color: red;
+}

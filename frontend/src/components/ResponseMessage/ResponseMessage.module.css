@@ -1,0 +1,16 @@
+.group{
+  margin: 10px 5px;
+  font-family: 'Roboto Slab', serif;
+}
+
+.mainMessage{
+  margin: 0 0 5px 0;
+  font-size: 16px;
+  color: red;
+}
+
+.descriptive{
+  margin: 0 0 5px 0;
+  font-size: 12px;
+  color: lightcoral
+}
