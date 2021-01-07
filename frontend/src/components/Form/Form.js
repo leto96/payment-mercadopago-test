@@ -65,6 +65,15 @@ const initialState = [
   },
   {
     value : '',
+    isSensible:false,
+    labelName:'Titular do cartão',
+    id:'cardholderName',
+    dataCheckout:'cardholderName',
+    type:'text',
+    placeholder:'FULLNAME'
+  },
+  {
+    value : '',
     labelName:'Código de segurança',
     isSensible:true,
     id:'securityCode',
@@ -112,15 +121,6 @@ const initialState = [
     id:'description',
     type:'text',
     hidden:true
-  },
-  {
-    value : '',
-    isSensible:false,
-    labelName:'Titular do cartão',
-    id:'cardholderName',
-    dataCheckout:'cardholderName',
-    type:'text',
-    placeholder:'FULLNAME'
   }
 ];
 
@@ -361,6 +361,7 @@ const Form = (props) => {
       })
       .finally(() => {
         setLoading(false);
+        setFormSubmitted(false);
       })
     }
   }, [formSubmitted]);
@@ -397,10 +398,11 @@ const maskValues = (id, value) => {
   switch (id) {
     case 'docNumber':
     case 'securityCode':
-    case 'cardExpirationMonth':
-    case 'cardExpirationYear':
     case 'cardNumber':
       return value.replaceAll(/\D/g, '');
+    case 'cardExpirationYear':
+    case 'cardExpirationMonth':
+      return value.replaceAll(/\D/g, '').substr(0, 2);
     default:
       return value;
   }
