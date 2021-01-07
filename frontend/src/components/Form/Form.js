@@ -152,9 +152,13 @@ const Form = (props) => {
           name:'token'
         }]);
       setFormSubmitted(true);
+    }else{
+      props.onResponseHandler({
+        status: 'Error',
+        message: response.message
+      });
+      setLoading(false);
     }
-    // console.log(status);
-    // console.log(response);
   }
 
   const onSubmitHandler = (e) => {
