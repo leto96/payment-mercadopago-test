@@ -1,6 +1,10 @@
-const HARDCODEDEV = false;
-(process.env.NODE_ENV === 'development' || HARDCODEDEV) ? require('dotenv').config(): null;
-// console.log( process.env.NODE_ENV === 'development' || HARDCODEDEV ? 'development' : 'production' );
+try {
+  const dotenv = require('dotenv');
+  dotenv.config();  
+} catch (error) {
+  // Do nothing, if we are in development mode, the dotenv will be present
+  // and it will load de env vars
+}
 
 const userFactory = require('./controller/user/userFactory');
 const paymentFactory = require('./controller/payments/payment');
