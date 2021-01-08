@@ -141,21 +141,42 @@ const Form = (props) => {
     return formData.map(data => data.id).indexOf(id)
   }
 
-  const setCardToken = (status, response) => {
+  const onSetCardTokenErrorHandler = (resp) => {
+    let key;
+    if(resp.cause && resp.cause.length > 0){
+      resp.cause.forEach(cause => {
+        switch (cause.code) {
+          case "E301":
+            key = findIndexKeyById('cardNumber');
+            updateStateFormData(key, 'invalidMessage', 'Cartão inválido');
+            break;
+          case "324":
+            key = findIndexKeyById('docNumber');
+            updateStateFormData(key, 'invalidMessage', 'Dados inválidos');
+            break;
+          default:
+            break;
+        }
+      }); 
+    }
+  }
+
+  const setCardToken = (status, resp) => {
     if (status === 200 || status === 201) {
       setFormData([...formData, 
         {
           id:'token',
           type:'text',
           hidden:true,
-          value: response.id,
+          value: resp.id,
           name:'token'
         }]);
       setFormSubmitted(true);
     }else{
+      onSetCardTokenErrorHandler(resp);
       props.onResponseHandler({
         status: 'Error',
-        message: response.message
+        message: resp.message
       });
       setLoading(false);
     }
@@ -249,7 +270,7 @@ const Form = (props) => {
     } else {
       // Something went wrong, the problem is from the card number
       key = findIndexKeyById('cardNumber');
-      updateStateFormData(key, 'invalidMessage', 'Invalid card');
+      updateStateFormData(key, 'invalidMessage', 'Cartão inválido');
     }
   }
 
@@ -279,7 +300,6 @@ const Form = (props) => {
     let eventValue = e.target.value;
     let value = maskValues(formData[key].id, eventValue); //Masked Value
     if(formData[key]['dataCheckout'] && formData[key]['dataCheckout'] === 'cardNumber'){
-      cleanInvalidMessage('cardNumber');
       if (value.length >= 6) {
         let bin = value.substring(0,6);
         window.Mercadopago.getPaymentMethod({
@@ -288,6 +308,7 @@ const Form = (props) => {
       }
     }
 
+    cleanInvalidMessage(formData[key].id);
     setChangedForm(true);
     updateStateFormData(key, 'value', value);
     
