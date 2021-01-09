@@ -1,6 +1,6 @@
 try {
   const dotenv = require('dotenv');
-  dotenv.config();  
+  dotenv.config();
 } catch (error) {
   // Do nothing, if we are in development mode, the dotenv will be present
   // and it will load de env vars
